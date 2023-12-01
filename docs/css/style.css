@@ -1,0 +1,952 @@
+/* @link https://utopia.fyi/type/calculator?c=320,20,1.2,1240,22,1.25,9,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN */
+:root {
+  --step--3: clamp(0.72rem, calc(0.72rem + 0.03vw), 0.77rem);
+  --step--2: clamp(0.87rem, calc(0.85rem + 0.07vw), 0.96rem);
+  --step--1: clamp(1.04rem, calc(1.02rem + 0.12vw), 1.2rem);
+  --step-0: clamp(1.25rem, calc(1.21rem + 0.18vw), 1.5rem);
+  --step-1: clamp(1.5rem, calc(1.44rem + 0.28vw), 1.88rem);
+  --step-2: clamp(1.8rem, calc(1.72rem + 0.4vw), 2.34rem);
+  --step-3: clamp(2.16rem, calc(2.05rem + 0.57vw), 2.93rem);
+  --step-4: clamp(2.59rem, calc(2.43rem + 0.79vw), 3.66rem);
+  --step-5: clamp(3.11rem, calc(2.9rem + 1.08vw), 4.58rem);
+  --step-6: clamp(3.73rem, calc(3.44rem + 1.46vw), 5.72rem);
+  --step-7: clamp(4.48rem, calc(4.09rem + 1.96vw), 7.15rem);
+  --step-8: clamp(5.38rem, calc(4.85rem + 2.62vw), 8.94rem);
+  --step-9: clamp(6.45rem, calc(5.76rem + 3.47vw), 11.18rem);
+}
+
+/*
+GENERATE CUSTOM VARIABLES
+*/
+:root {
+  --color-primary: hsl(334, 100%, 52%);
+  --color-grey7: hsl(240, 7%, 64%);
+  --color-grey6: hsl(240, 10%, 72%);
+  --color-grey5: hsl(237, 16%, 80%);
+  --color-grey4: hsl(236, 21%, 87%);
+  --color-grey3: hsl(240, 23%, 92%);
+  --color-grey2: hsl(240, 25%, 96%);
+  --color-grey: hsl(0, 0%, 100%);
+  --color-text-primary: hsl(240, 4%, 16%);
+  --color-text-secondary: hsla(230, 3%, 30%, 0.6);
+  --color-text-tertiary: hsla(230, 3%, 34%, 0.3);
+  --color-z0: hsl(0, 0%, 97%);
+  --color-z1: hsl(240, 23%, 92%);
+  --color-border-primary: hsl(236, 21%, 87%);
+  --color-negative-text-primary: hsl(0, 55%, 39%);
+  --color-negative-text-secondary: hsl(0, 55%, 45%);
+  --color-negative-bg: hsl(0, 100%, 88%);
+  --s-200: var(--step--2);
+  --s-300: var(--step--1);
+  --s-400: var(--step-0);
+  --s-500: var(--step-1);
+  --s-600: var(--step-2);
+  --s-700: var(--step-3);
+  --s-800: var(--step-4);
+  --s-900: var(--step-5);
+  --s-1000: var(--step-6);
+  --s-1100: var(--step-7);
+  --s-1200: var(--step-8);
+  --s-1300: var(--step-9);
+  --measure-micro: 10ch;
+  --measure-compact: 22ch;
+  --measure-short: 40ch;
+  --measure-medium: 48ch;
+  --measure-long: 64ch;
+  --ff-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;;
+  --ff-serif: ui-serif, Georgia, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;;
+  --ff-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;;
+  --lh-tight: 1.1;
+  --lh-regular: 1.5;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extraBold: 800;
+}
+/* 
+GENERATE UTILITY CLASSES
+*/
+.color-primary {
+  color: hsl(334, 100%, 52%);
+}
+
+.bg-primary {
+  background-color: hsl(334, 100%, 52%);
+}
+
+.color-grey7 {
+  color: hsl(240, 7%, 64%);
+}
+
+.bg-grey7 {
+  background-color: hsl(240, 7%, 64%);
+}
+
+.color-grey6 {
+  color: hsl(240, 10%, 72%);
+}
+
+.bg-grey6 {
+  background-color: hsl(240, 10%, 72%);
+}
+
+.color-grey5 {
+  color: hsl(237, 16%, 80%);
+}
+
+.bg-grey5 {
+  background-color: hsl(237, 16%, 80%);
+}
+
+.color-grey4 {
+  color: hsl(236, 21%, 87%);
+}
+
+.bg-grey4 {
+  background-color: hsl(236, 21%, 87%);
+}
+
+.color-grey3 {
+  color: hsl(240, 23%, 92%);
+}
+
+.bg-grey3 {
+  background-color: hsl(240, 23%, 92%);
+}
+
+.color-grey2 {
+  color: hsl(240, 25%, 96%);
+}
+
+.bg-grey2 {
+  background-color: hsl(240, 25%, 96%);
+}
+
+.color-grey {
+  color: hsl(0, 0%, 100%);
+}
+
+.bg-grey {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.color-text-primary {
+  color: hsl(240, 4%, 16%);
+}
+
+.bg-text-primary {
+  background-color: hsl(240, 4%, 16%);
+}
+
+.color-text-secondary {
+  color: hsla(230, 3%, 30%, 0.6);
+}
+
+.bg-text-secondary {
+  background-color: hsla(230, 3%, 30%, 0.6);
+}
+
+.color-text-tertiary {
+  color: hsla(230, 3%, 34%, 0.3);
+}
+
+.bg-text-tertiary {
+  background-color: hsla(230, 3%, 34%, 0.3);
+}
+
+.color-z0 {
+  color: hsl(0, 0%, 97%);
+}
+
+.bg-z0 {
+  background-color: hsl(0, 0%, 97%);
+}
+
+.color-z1 {
+  color: hsl(240, 23%, 92%);
+}
+
+.bg-z1 {
+  background-color: hsl(240, 23%, 92%);
+}
+
+.color-border-primary {
+  color: hsl(236, 21%, 87%);
+}
+
+.bg-border-primary {
+  background-color: hsl(236, 21%, 87%);
+}
+
+.color-negative-text-primary {
+  color: hsl(0, 55%, 39%);
+}
+
+.bg-negative-text-primary {
+  background-color: hsl(0, 55%, 39%);
+}
+
+.color-negative-text-secondary {
+  color: hsl(0, 55%, 45%);
+}
+
+.bg-negative-text-secondary {
+  background-color: hsl(0, 55%, 45%);
+}
+
+.color-negative-bg {
+  color: hsl(0, 100%, 88%);
+}
+
+.bg-negative-bg {
+  background-color: hsl(0, 100%, 88%);
+}
+
+.fs-200 {
+  font-size: var(--step--2);
+}
+
+.gap-200 {
+  margin: var(--step--2);
+}
+
+.gap-top-200 {
+  margin-top: var(--step--2);
+}
+
+.gap-right-200 {
+  margin-right: var(--step--2);
+}
+
+.gap-bottom-200 {
+  margin-bottom: var(--step--2);
+}
+
+.gap-left-200 {
+  margin-left: var(--step--2);
+}
+
+.pad-top-200 {
+  padding-top: var(--step--2);
+}
+
+.pad-right-200 {
+  padding-right: var(--step--2);
+}
+
+.pad-bottom-200 {
+  padding-bottom: var(--step--2);
+}
+
+.pad-left-200 {
+  padding-left: var(--step--2);
+}
+
+.fs-300 {
+  font-size: var(--step--1);
+}
+
+.gap-300 {
+  margin: var(--step--1);
+}
+
+.gap-top-300 {
+  margin-top: var(--step--1);
+}
+
+.gap-right-300 {
+  margin-right: var(--step--1);
+}
+
+.gap-bottom-300 {
+  margin-bottom: var(--step--1);
+}
+
+.gap-left-300 {
+  margin-left: var(--step--1);
+}
+
+.pad-top-300 {
+  padding-top: var(--step--1);
+}
+
+.pad-right-300 {
+  padding-right: var(--step--1);
+}
+
+.pad-bottom-300 {
+  padding-bottom: var(--step--1);
+}
+
+.pad-left-300 {
+  padding-left: var(--step--1);
+}
+
+.fs-400 {
+  font-size: var(--step-0);
+}
+
+.gap-400 {
+  margin: var(--step-0);
+}
+
+.gap-top-400 {
+  margin-top: var(--step-0);
+}
+
+.gap-right-400 {
+  margin-right: var(--step-0);
+}
+
+.gap-bottom-400 {
+  margin-bottom: var(--step-0);
+}
+
+.gap-left-400 {
+  margin-left: var(--step-0);
+}
+
+.pad-top-400 {
+  padding-top: var(--step-0);
+}
+
+.pad-right-400 {
+  padding-right: var(--step-0);
+}
+
+.pad-bottom-400 {
+  padding-bottom: var(--step-0);
+}
+
+.pad-left-400 {
+  padding-left: var(--step-0);
+}
+
+.fs-500 {
+  font-size: var(--step-1);
+}
+
+.gap-500 {
+  margin: var(--step-1);
+}
+
+.gap-top-500 {
+  margin-top: var(--step-1);
+}
+
+.gap-right-500 {
+  margin-right: var(--step-1);
+}
+
+.gap-bottom-500 {
+  margin-bottom: var(--step-1);
+}
+
+.gap-left-500 {
+  margin-left: var(--step-1);
+}
+
+.pad-top-500 {
+  padding-top: var(--step-1);
+}
+
+.pad-right-500 {
+  padding-right: var(--step-1);
+}
+
+.pad-bottom-500 {
+  padding-bottom: var(--step-1);
+}
+
+.pad-left-500 {
+  padding-left: var(--step-1);
+}
+
+.fs-600 {
+  font-size: var(--step-2);
+}
+
+.gap-600 {
+  margin: var(--step-2);
+}
+
+.gap-top-600 {
+  margin-top: var(--step-2);
+}
+
+.gap-right-600 {
+  margin-right: var(--step-2);
+}
+
+.gap-bottom-600 {
+  margin-bottom: var(--step-2);
+}
+
+.gap-left-600 {
+  margin-left: var(--step-2);
+}
+
+.pad-top-600 {
+  padding-top: var(--step-2);
+}
+
+.pad-right-600 {
+  padding-right: var(--step-2);
+}
+
+.pad-bottom-600 {
+  padding-bottom: var(--step-2);
+}
+
+.pad-left-600 {
+  padding-left: var(--step-2);
+}
+
+.fs-700 {
+  font-size: var(--step-3);
+}
+
+.gap-700 {
+  margin: var(--step-3);
+}
+
+.gap-top-700 {
+  margin-top: var(--step-3);
+}
+
+.gap-right-700 {
+  margin-right: var(--step-3);
+}
+
+.gap-bottom-700 {
+  margin-bottom: var(--step-3);
+}
+
+.gap-left-700 {
+  margin-left: var(--step-3);
+}
+
+.pad-top-700 {
+  padding-top: var(--step-3);
+}
+
+.pad-right-700 {
+  padding-right: var(--step-3);
+}
+
+.pad-bottom-700 {
+  padding-bottom: var(--step-3);
+}
+
+.pad-left-700 {
+  padding-left: var(--step-3);
+}
+
+.fs-800 {
+  font-size: var(--step-4);
+}
+
+.gap-800 {
+  margin: var(--step-4);
+}
+
+.gap-top-800 {
+  margin-top: var(--step-4);
+}
+
+.gap-right-800 {
+  margin-right: var(--step-4);
+}
+
+.gap-bottom-800 {
+  margin-bottom: var(--step-4);
+}
+
+.gap-left-800 {
+  margin-left: var(--step-4);
+}
+
+.pad-top-800 {
+  padding-top: var(--step-4);
+}
+
+.pad-right-800 {
+  padding-right: var(--step-4);
+}
+
+.pad-bottom-800 {
+  padding-bottom: var(--step-4);
+}
+
+.pad-left-800 {
+  padding-left: var(--step-4);
+}
+
+.fs-900 {
+  font-size: var(--step-5);
+}
+
+.gap-900 {
+  margin: var(--step-5);
+}
+
+.gap-top-900 {
+  margin-top: var(--step-5);
+}
+
+.gap-right-900 {
+  margin-right: var(--step-5);
+}
+
+.gap-bottom-900 {
+  margin-bottom: var(--step-5);
+}
+
+.gap-left-900 {
+  margin-left: var(--step-5);
+}
+
+.pad-top-900 {
+  padding-top: var(--step-5);
+}
+
+.pad-right-900 {
+  padding-right: var(--step-5);
+}
+
+.pad-bottom-900 {
+  padding-bottom: var(--step-5);
+}
+
+.pad-left-900 {
+  padding-left: var(--step-5);
+}
+
+.fs-1000 {
+  font-size: var(--step-6);
+}
+
+.gap-1000 {
+  margin: var(--step-6);
+}
+
+.gap-top-1000 {
+  margin-top: var(--step-6);
+}
+
+.gap-right-1000 {
+  margin-right: var(--step-6);
+}
+
+.gap-bottom-1000 {
+  margin-bottom: var(--step-6);
+}
+
+.gap-left-1000 {
+  margin-left: var(--step-6);
+}
+
+.pad-top-1000 {
+  padding-top: var(--step-6);
+}
+
+.pad-right-1000 {
+  padding-right: var(--step-6);
+}
+
+.pad-bottom-1000 {
+  padding-bottom: var(--step-6);
+}
+
+.pad-left-1000 {
+  padding-left: var(--step-6);
+}
+
+.fs-1100 {
+  font-size: var(--step-7);
+}
+
+.gap-1100 {
+  margin: var(--step-7);
+}
+
+.gap-top-1100 {
+  margin-top: var(--step-7);
+}
+
+.gap-right-1100 {
+  margin-right: var(--step-7);
+}
+
+.gap-bottom-1100 {
+  margin-bottom: var(--step-7);
+}
+
+.gap-left-1100 {
+  margin-left: var(--step-7);
+}
+
+.pad-top-1100 {
+  padding-top: var(--step-7);
+}
+
+.pad-right-1100 {
+  padding-right: var(--step-7);
+}
+
+.pad-bottom-1100 {
+  padding-bottom: var(--step-7);
+}
+
+.pad-left-1100 {
+  padding-left: var(--step-7);
+}
+
+.fs-1200 {
+  font-size: var(--step-8);
+}
+
+.gap-1200 {
+  margin: var(--step-8);
+}
+
+.gap-top-1200 {
+  margin-top: var(--step-8);
+}
+
+.gap-right-1200 {
+  margin-right: var(--step-8);
+}
+
+.gap-bottom-1200 {
+  margin-bottom: var(--step-8);
+}
+
+.gap-left-1200 {
+  margin-left: var(--step-8);
+}
+
+.pad-top-1200 {
+  padding-top: var(--step-8);
+}
+
+.pad-right-1200 {
+  padding-right: var(--step-8);
+}
+
+.pad-bottom-1200 {
+  padding-bottom: var(--step-8);
+}
+
+.pad-left-1200 {
+  padding-left: var(--step-8);
+}
+
+.fs-1300 {
+  font-size: var(--step-9);
+}
+
+.gap-1300 {
+  margin: var(--step-9);
+}
+
+.gap-top-1300 {
+  margin-top: var(--step-9);
+}
+
+.gap-right-1300 {
+  margin-right: var(--step-9);
+}
+
+.gap-bottom-1300 {
+  margin-bottom: var(--step-9);
+}
+
+.gap-left-1300 {
+  margin-left: var(--step-9);
+}
+
+.pad-top-1300 {
+  padding-top: var(--step-9);
+}
+
+.pad-right-1300 {
+  padding-right: var(--step-9);
+}
+
+.pad-bottom-1300 {
+  padding-bottom: var(--step-9);
+}
+
+.pad-left-1300 {
+  padding-left: var(--step-9);
+}
+
+.measure-micro {
+  max-width: 10ch;
+}
+
+.measure-compact {
+  max-width: 22ch;
+}
+
+.measure-short {
+  max-width: 40ch;
+}
+
+.measure-medium {
+  max-width: 48ch;
+}
+
+.measure-long {
+  max-width: 64ch;
+}
+
+.ff-sans {
+  font-family: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;";
+}
+
+.ff-serif {
+  font-family: "ui-serif, Georgia, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;";
+}
+
+.ff-mono {
+  font-family: "ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;";
+}
+
+.lh-tight {
+  line-height: 1.1;
+}
+
+.lh-regular {
+  line-height: 1.5;
+}
+
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-extraBold {
+  font-weight: 800;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* 
+@use "path/breakpoints"
+@include breakpoints.md {
+    background-color: red;
+}
+*/
+body {
+  font-size: var(--s-400);
+  line-height: var(--lh-regular);
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+strong {
+  font-weight: var(--fw-semibold);
+}
+
+em {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  --flow-space: var(--s-900);
+}
+
+h1,
+.h1 {
+  font-size: var(--s-900);
+}
+
+h2,
+.h2 {
+  font-size: var(--s-800);
+  line-height: var(--lh-tight);
+}
+
+h3,
+.h3 {
+  font-size: var(--s-700);
+}
+
+h4,
+.h4 {
+  font-size: var(--s-600);
+}
+
+h5,
+.h5 {
+  font-size: var(--s-500);
+  --flow-space: var(--s-700);
+}
+
+/* Utilities */
+/**
+ * FLOW
+ * Applies a margin to sibling elements based on a --flow-space custom property.
+ */
+.flow > * + * {
+  margin-top: var(--flow-space, var(--s-500));
+}
+
+.wrapper {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 0 1rem;
+}
+@media (min-width: 48em) {
+  .wrapper {
+    padding: 0 2%;
+  }
+}
+.wrapper[data-width=full] {
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* Components */
+/* Pages */
+body {
+  background-color: var(--color-z0);
+}
+
+:focus {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 0.25rem;
+}
+
+main:focus {
+  outline: none;
+}

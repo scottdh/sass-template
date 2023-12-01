@@ -1,0 +1,22 @@
+$size-scale: (
+  "200": var(--step--2),
+  "300": var(--step--1),
+  "400": var(--step-0),
+  "500": var(--step-1),
+  "600": var(--step-2),
+  "700": var(--step-3),
+  "800": var(--step-4),
+  "900": var(--step-5),
+  "1000": var(--step-6),
+  "1100": var(--step-7),
+  "1200": var(--step-8),
+  "1300": var(--step-9),
+);
+
+$measure: (
+  micro: 10ch,
+  compact: 22ch,
+  short: 40ch,
+  medium: 48ch,
+  long: 64ch,
+);

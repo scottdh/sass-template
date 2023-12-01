@@ -1,0 +1,13 @@
+@use "../design-tokens/breakpoints";
+
+.wrapper {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 0 1rem;
+  @include breakpoints.md {
+    padding: 0 2%;
+  }
+  &[data-width="full"] {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,125 @@
+@use "./fluid-type-scale";
+@use "./sizing-spacing";
+@use "./colors";
+@use "./typography-tokens";
+
+/*
+GENERATE CUSTOM VARIABLES
+*/
+:root {
+  // colors
+  @each $theme, $colors in colors.$themes {
+    @if $theme == dark {
+      @media (prefers-color-scheme: dark) {
+        @each $color, $value in $colors {
+          --color-#{$color}: #{$value};
+        }
+      }
+    }
+    @each $color, $value in $colors {
+      --color-#{$color}: #{$value};
+    }
+  }
+  // sizing and spacing
+  @each $size, $value in sizing-spacing.$size-scale {
+    --s-#{$size}: #{$value};
+  }
+  @each $size, $value in sizing-spacing.$measure {
+    --measure-#{$size}: #{$value};
+  }
+  // typography-tokens
+  @each $item, $value in typography-tokens.$ff {
+    --ff-#{$item}: #{$value};
+  }
+  @each $item, $value in typography-tokens.$lh {
+    --lh-#{$item}: #{$value};
+  }
+  @each $item, $value in typography-tokens.$fw {
+    --fw-#{$item}: #{$value};
+  }
+}
+
+/* 
+GENERATE UTILITY CLASSES
+*/
+
+// colors
+@each $theme, $colors in colors.$themes {
+  @if $theme == dark {
+    @media (prefers-color-scheme: dark) {
+      @each $color, $value in $colors {
+        .color-#{$color} {
+          color: $value;
+        }
+        .bg-#{$color} {
+          background-color: $value;
+        }
+      }
+    }
+  }
+  @each $color, $value in $colors {
+    .color-#{$color} {
+      color: $value;
+    }
+    .bg-#{$color} {
+      background-color: $value;
+    }
+  }
+}
+
+// sizing and spacing
+@each $item, $value in sizing-spacing.$size-scale {
+  .fs-#{$item} {
+    font-size: $value;
+  }
+  .gap-#{$item} {
+    margin: $value;
+  }
+  .gap-top-#{$item} {
+    margin-top: $value;
+  }
+  .gap-right-#{$item} {
+    margin-right: $value;
+  }
+  .gap-bottom-#{$item} {
+    margin-bottom: $value;
+  }
+  .gap-left-#{$item} {
+    margin-left: $value;
+  }
+  .pad-top-#{$item} {
+    padding-top: $value;
+  }
+  .pad-right-#{$item} {
+    padding-right: $value;
+  }
+  .pad-bottom-#{$item} {
+    padding-bottom: $value;
+  }
+  .pad-left-#{$item} {
+    padding-left: $value;
+  }
+}
+
+@each $item, $value in sizing-spacing.$measure {
+  .measure-#{$item} {
+    max-width: $value;
+  }
+}
+
+// typography-tokens
+@each $item, $value in typography-tokens.$ff {
+  .ff-#{$item} {
+    font-family: $value;
+  }
+}
+@each $item, $value in typography-tokens.$lh {
+  .lh-#{$item} {
+    line-height: $value;
+  }
+}
+@each $item, $value in typography-tokens.$fw {
+  .fw-#{$item} {
+    font-weight: $value;
+  }
+}
